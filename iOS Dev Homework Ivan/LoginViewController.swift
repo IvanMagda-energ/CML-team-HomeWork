@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
                     let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                     let navigationController = storyboard.instantiateViewController(withIdentifier: "MemberAreaNavigationController")
                     self.view.window?.rootViewController = navigationController
+                } else {
+                    let alert = UIAlertController(title: "Attention", message: "Incorrect login or password", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }

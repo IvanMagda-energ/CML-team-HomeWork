@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class MemberAreaViewController: UIViewController {
     @IBOutlet weak var propertiesTableView: UITableView!
@@ -20,6 +21,7 @@ class MemberAreaViewController: UIViewController {
         
         self.propertiesTableView.delegate = self
         self.propertiesTableView.dataSource = self
+        
         let cellNib = UINib(nibName: "PropertiesListTableViewCell", bundle: nil)
         propertiesTableView.register(cellNib, forCellReuseIdentifier: "PropertiesListTableViewCell")
         
@@ -34,10 +36,17 @@ class MemberAreaViewController: UIViewController {
                             self.propertiesTableView.reloadData()
                         }
                     case .failure(let error):
+                        let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                        self.present(alert, animated: true, completion: nil)
+                        
                         print("error")
                     }
                 }
             case .failure(let error):
+                let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                self.present(alert, animated: true, completion: nil)
                 print("error")
             }
         }
@@ -58,7 +67,7 @@ extension MemberAreaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 157.0
+        return 170.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
