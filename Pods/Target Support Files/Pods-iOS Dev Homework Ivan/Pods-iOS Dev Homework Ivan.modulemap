@@ -1,6 +1,0 @@
-framework module Pods_iOS_Dev_Homework_Ivan {
-  umbrella header "Pods-iOS Dev Homework Ivan-umbrella.h"
-
-  export *
-  module * { export * }
-}
