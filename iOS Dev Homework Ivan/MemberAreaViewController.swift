@@ -62,12 +62,13 @@ extension MemberAreaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = self.propertyDataArray[indexPath.row]
-        let vc = DetailViewController()
-        vc.setupDetailController(data: data)
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController{
+            let data = self.propertyDataArray[indexPath.row]
+            detailViewController.data = data
             navigationController?.pushViewController(detailViewController, animated: true)
+            
         }
     }
 }

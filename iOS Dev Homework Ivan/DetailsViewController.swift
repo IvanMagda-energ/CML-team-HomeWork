@@ -13,8 +13,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
+    var data: PropertyData?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupDetailController(data: data!)
+    }
+    
+    
+    
     func setupDetailController (data: PropertyData){
-        nameLabel.text = data.name
+        nameLabel.text = data.name 
         adressLabel.text = "\(data.country), " + "\(data.city), " + "\(data.street)"
         typeLabel.text = data.type
         statusLabel.text = data.status
