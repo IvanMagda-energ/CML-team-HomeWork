@@ -66,6 +66,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		755A8BE02868BC27006B30B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				758638B32867913500D1769E /* DetailsViewController.swift */,
+				75DC4EBD2865BA2900753ADA /* LoginViewController.swift */,
+				75E77ADC28670FCB007E2357 /* MemberAreaViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		758638B2286787B900D1769E /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		75DC4EA82865B01F00753ADA /* iOS Dev Homework Ivan */ = {
 			isa = PBXGroup;
 			children = (
+				755A8BE02868BC27006B30B5 /* ViewControllers */,
 				758638B2286787B900D1769E /* NetworkClient */,
 				75E77AD528660C12007E2357 /* Cells */,
 				75E77AD22865F226007E2357 /* Models */,
@@ -104,9 +115,6 @@
 				75DC4EB22865B02400753ADA /* Assets.xcassets */,
 				75DC4EB42865B02400753ADA /* LaunchScreen.storyboard */,
 				75DC4EB72865B02400753ADA /* Info.plist */,
-				758638B32867913500D1769E /* DetailsViewController.swift */,
-				75DC4EBD2865BA2900753ADA /* LoginViewController.swift */,
-				75E77ADC28670FCB007E2357 /* MemberAreaViewController.swift */,
 			);
 			path = "iOS Dev Homework Ivan";
 			sourceTree = "<group>";

@@ -24,9 +24,11 @@ class LoginViewController: UIViewController {
                     let navigationController = storyboard.instantiateViewController(withIdentifier: "MemberAreaNavigationController")
                     self.view.window?.rootViewController = navigationController
                 } else {
-                    let alert = UIAlertController(title: "Attention", message: "Incorrect login or password", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                    self.present(alert, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Attention", message: "Incorrect login or password", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -34,7 +36,5 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginTextField.text = "test111@test.com"
-        passwordTextField.text = "test1234"
     }
 }

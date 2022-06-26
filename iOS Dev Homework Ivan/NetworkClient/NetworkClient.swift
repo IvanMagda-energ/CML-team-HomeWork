@@ -16,7 +16,6 @@ class NetworkClient{
     private let baseURL = "https://re-next-qa.cmlteam.com"
     private let defaultHeaders: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/json")]
     private var authModel: AuthorizationModel?
-    let parameters: [String: String] = [:]
     
     func loginRequest (email: String, password: String, completionHandler: @escaping (Error?) -> Void){
         

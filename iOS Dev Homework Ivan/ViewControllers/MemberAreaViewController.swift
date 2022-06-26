@@ -36,18 +36,19 @@ class MemberAreaViewController: UIViewController {
                             self.propertiesTableView.reloadData()
                         }
                     case .failure(let error):
-                        let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                        self.present(alert, animated: true, completion: nil)
-                        
-                        print("error")
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                 }
             case .failure(let error):
-                let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                self.present(alert, animated: true, completion: nil)
-                print("error")
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -73,10 +74,10 @@ extension MemberAreaViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailViewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController{
+        if let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
             let data = self.propertyDataArray[indexPath.row]
-            detailViewController.data = data
-            navigationController?.pushViewController(detailViewController, animated: true)
+            detailsViewController.data = data
+            navigationController?.pushViewController(detailsViewController, animated: true)
             
         }
     }
