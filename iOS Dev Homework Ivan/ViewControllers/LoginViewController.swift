@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
-   
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let client = NetworkClient.shared
+    let networkClient = NetworkClient.shared
     
     private func alert(message: String) {
         DispatchQueue.main.async {
@@ -25,15 +25,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func sendRequestButton(_ sender: Any) {
-        client.loginRequest(email: loginTextField?.text ?? "", password: passwordTextField?.text ?? "") { error in
-            DispatchQueue.main.async {
-                if error == nil {
+        guard let login = loginTextField?.text, let password = passwordTextField?.text else {
+            self.alert(message: "Incorrect login or password")
+            return
+        }
+        networkClient.loginRequest(email: login, password: password) { error in
+            if error == nil {
+                DispatchQueue.main.async {
                     let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                     let navigationController = storyboard.instantiateViewController(withIdentifier: "MemberAreaNavigationController")
                     self.view.window?.rootViewController = navigationController
-                } else {
-                    self.alert(message: "Incorrect login or password")
                 }
+            } else {
+                self.alert(message: "Incorrect login or password")
             }
         }
     }
