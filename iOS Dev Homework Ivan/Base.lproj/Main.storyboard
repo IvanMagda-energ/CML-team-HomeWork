@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkw-MX-lq3">
-                                <rect key="frame" x="100" y="200" width="120" height="50"/>
+                                <rect key="frame" x="100" y="210" width="120" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="q7h-VJ-KST"/>
+                                    <constraint firstAttribute="height" constant="30" id="q7h-VJ-KST"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -65,7 +65,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gj0-Fi-gjH" secondAttribute="trailing" constant="20" id="A5S-F3-F0X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xkw-MX-lq3" secondAttribute="trailing" constant="100" id="JVF-GU-AZu"/>
                             <constraint firstItem="Xkw-MX-lq3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Jfk-j4-1Qs"/>
-                            <constraint firstItem="Xkw-MX-lq3" firstAttribute="top" secondItem="eHM-8A-b8Y" secondAttribute="bottom" constant="10" id="Z2W-SN-TOy"/>
+                            <constraint firstItem="Xkw-MX-lq3" firstAttribute="top" secondItem="eHM-8A-b8Y" secondAttribute="bottom" constant="20" id="Z2W-SN-TOy"/>
                             <constraint firstItem="gj0-Fi-gjH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="blc-hM-mBs"/>
                             <constraint firstItem="gj0-Fi-gjH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dJd-BI-DGC"/>
                             <constraint firstItem="eHM-8A-b8Y" firstAttribute="top" secondItem="gj0-Fi-gjH" secondAttribute="bottom" constant="10" id="fL5-FT-lnp"/>

@@ -1,15 +1,15 @@
 
 import Foundation
-struct CurrentUserModel : Codable {
-    let id : Int
-    let email : String?
-    let emailVerified : Bool?
-    let firstName : String?
-    let lastName : String?
-    let phone : String?
-    let avatar : Avatar?
-    let accountId : Int
-    let role : String?
+struct CurrentUserModel: Codable {
+    let id: Int
+    let email: String?
+    let emailVerified: Bool?
+    let firstName: String?
+    let lastName: String?
+    let phone: String?
+    let avatar: Avatar?
+    let accountId: Int
+    let role: String?
     
     enum CodingKeys: String, CodingKey {
         
@@ -24,9 +24,9 @@ struct CurrentUserModel : Codable {
         case role = "role"
     }
 }
-struct Avatar : Codable {
-    let s3Key : String?
-    let s3Link : String?
+struct Avatar: Codable {
+    let s3Key: String?
+    let s3Link: String?
     
     enum CodingKeys: String, CodingKey {
         

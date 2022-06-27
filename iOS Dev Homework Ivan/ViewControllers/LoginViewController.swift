@@ -16,6 +16,14 @@ class LoginViewController: UIViewController {
     
     let client = NetworkClient.shared
     
+    private func alert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Attention", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func sendRequestButton(_ sender: Any) {
         client.loginRequest(email: loginTextField?.text ?? "", password: passwordTextField?.text ?? "") { error in
             DispatchQueue.main.async {
@@ -24,16 +32,11 @@ class LoginViewController: UIViewController {
                     let navigationController = storyboard.instantiateViewController(withIdentifier: "MemberAreaNavigationController")
                     self.view.window?.rootViewController = navigationController
                 } else {
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Attention", message: "Incorrect login or password", preferredStyle: UIAlertController.Style.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                        self.present(alert, animated: true, completion: nil)
-                    }
+                    self.alert(message: "Incorrect login or password")
                 }
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -17,7 +17,7 @@ class NetworkClient{
     private let defaultHeaders: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/json")]
     private var authModel: AuthorizationModel?
     
-    func loginRequest (email: String, password: String, completionHandler: @escaping (Error?) -> Void){
+    func loginRequest(email: String, password: String, completionHandler: @escaping (Error?) -> Void){
         
         let url = baseURL + "/auth/login"
         let parameters: [String: String] = ["email": email, "password": password]
@@ -42,7 +42,7 @@ class NetworkClient{
         }
     }
     
-    func getCurrentUserRequest (completionHandler: @escaping (Result<CurrentUserModel, Error>) -> Void){
+    func getCurrentUserRequest(completionHandler: @escaping (Result<CurrentUserModel, Error>) -> Void){
         let url = baseURL + "/auth/current-user"
         var headers: HTTPHeaders = defaultHeaders
         let authHeadersValue: String = "\(authModel?.tokenType ?? "") \(authModel?.accessToken ?? "")"
@@ -66,7 +66,7 @@ class NetworkClient{
         }
     }
     
-    func getAllPropertiesRequest (accountId: Int, completionHandler: @escaping (Result<PropertiesModel, Error>) -> Void){
+    func getAllPropertiesRequest(accountId: Int, completionHandler: @escaping (Result<PropertiesModel, Error>) -> Void){
         let url = baseURL + "/api/property/list?page=0&pageSize=10&accountId=\(String(accountId))"
         var headers: HTTPHeaders = defaultHeaders
         let authHeaderValue: String = "\(authModel?.tokenType ?? "") \(authModel?.accessToken ?? "")"

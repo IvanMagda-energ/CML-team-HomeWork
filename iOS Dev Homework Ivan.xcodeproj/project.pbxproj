@@ -69,9 +69,9 @@
 		755A8BE02868BC27006B30B5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				758638B32867913500D1769E /* DetailsViewController.swift */,
 				75DC4EBD2865BA2900753ADA /* LoginViewController.swift */,
 				75E77ADC28670FCB007E2357 /* MemberAreaViewController.swift */,
+				758638B32867913500D1769E /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

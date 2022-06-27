@@ -13,17 +13,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
-     
     var data: PropertyData?
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupDetailsController()
     }
     
-    func setupDetailsController (){
+    func setupDetailsController() {
         guard let data = data else {
             return
         }
@@ -31,7 +29,6 @@ class DetailsViewController: UIViewController {
         adressLabel.text = "\(data.country), " + "\(data.city), " + "\(data.street)"
         typeLabel.text = data.type
         statusLabel.text = data.status
-        
     }
 }
 

@@ -16,6 +16,21 @@ class MemberAreaViewController: UIViewController {
     
     let networkClient = NetworkClient.shared
     
+    private func  loadingDataInTableView(propertiesModel: PropertiesModel) {
+        DispatchQueue.main.async {
+            self.propertyDataArray = propertiesModel.data
+            self.propertiesTableView.reloadData()
+        }
+    }
+    
+    private func alert(message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Attention", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,24 +46,13 @@ class MemberAreaViewController: UIViewController {
                 self.networkClient.getAllPropertiesRequest(accountId: user.accountId) { result in
                     switch result {
                     case .success(let propertiesModel):
-                        DispatchQueue.main.async {
-                            self.propertyDataArray = propertiesModel.data
-                            self.propertiesTableView.reloadData()
-                        }
-                    case .failure(let error):
-                        DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                            self.present(alert, animated: true, completion: nil)
-                        }
+                        self.loadingDataInTableView(propertiesModel: propertiesModel)
+                    case .failure(_):
+                        self.alert(message: "Error response from server")
                     }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Attention", message: "Error response from server", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
-                    self.present(alert, animated: true, completion: nil)
-                }
+            case .failure(_):
+                self.alert(message: "Error response from server")
             }
         }
     }

@@ -1,8 +1,8 @@
 
 import Foundation
-struct AuthorizationModel : Codable {
-	let accessToken : String
-	let tokenType : String
+struct AuthorizationModel: Codable {
+	let accessToken: String
+	let tokenType: String
 
 	enum CodingKeys: String, CodingKey {
 

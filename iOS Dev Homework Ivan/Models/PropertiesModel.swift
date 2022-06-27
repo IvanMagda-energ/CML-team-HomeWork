@@ -1,10 +1,10 @@
 
 import Foundation
 
-struct PropertiesModel : Codable {
-    let data : [PropertyData]
-    let total : Int
-    let totalPages : Int
+struct PropertiesModel: Codable {
+    let data: [PropertyData]
+    let total: Int
+    let totalPages: Int
 
     enum CodingKeys: String, CodingKey {
         case data = "data"
@@ -14,23 +14,23 @@ struct PropertiesModel : Codable {
 }
 
 struct PropertyData : Codable {
-    let id : Int
-    let name : String?
-    let description : String?
-    let country : String
-    let zipCode : String?
-    let state : String?
-    let district : String?
-    let city : String
-    let street : String
-    let houseNumber : String?
-    let suiteNumber : String?
-    let coordinates : Coordinates?
-    let type : String?
-    let status : String?
-    let account : String?
-    let imageS3Array : [ImageS3Array]?
-    let code : String?
+    let id: Int
+    let name: String?
+    let description: String?
+    let country: String
+    let zipCode: String?
+    let state: String?
+    let district: String?
+    let city: String
+    let street: String
+    let houseNumber: String?
+    let suiteNumber: String?
+    let coordinates: Coordinates?
+    let type: String?
+    let status: String?
+    let account: String?
+    let imageS3Array: [ImageS3Array]?
+    let code: String?
 
     enum CodingKeys: String, CodingKey {
 
@@ -54,9 +54,9 @@ struct PropertyData : Codable {
     }
 }
 
-struct Coordinates : Codable {
-    let lat : String?
-    let lng : String?
+struct Coordinates: Codable {
+    let lat: String?
+    let lng: String?
 
     enum CodingKeys: String, CodingKey {
 
@@ -65,10 +65,10 @@ struct Coordinates : Codable {
     }
 }
 
-struct ImageS3Array : Codable {
-    let key : String?
-    let temporaryLink : String?
-    let description : String?
+struct ImageS3Array: Codable {
+    let key: String?
+    let temporaryLink: String?
+    let description: String?
 
     enum CodingKeys: String, CodingKey {
 
